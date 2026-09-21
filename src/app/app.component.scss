@@ -1,0 +1,18 @@
+.contenitore{
+  background-color: green;
+
+  h2{
+    color: white;
+    font-size: 50px;
+  }
+  .paragrafo{
+    color: rgb(78, 41, 41);
+    font-size: 65px;
+
+    span{
+      color: rgb(255, 255, 255);
+      font-size: 35px;
+      font-weight: bold;
+    }
+  }
+}
