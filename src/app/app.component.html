@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="../assets/images/icona-cibando-farlocca.jpg" class="logo" alt="Logo" width="30" height="24">
+      <img src="../assets/images/icona-cibando-farlocca.jpg" class="logo" alt="Logo">
         Cibando</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,12 +21,36 @@
     </div>
   </div>
 </nav>
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://t3.ftcdn.net/jpg/03/54/79/46/360_F_354794664_2Dd4cHPwpdRSouUwJieXxDw5f29ZmhOf.jpg" class="d-block w-100" alt="...">
+    </div>
+
+   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 
 <div class="contenitore">
-  <h2>App di esempio</h2>
+  <h2>App di esempiooo</h2>
   <p class="paragrafo">ecco il testo dentro al <span>paragrafo</span>
   </p>
   eccon un altro <span>testo</span>
+  allievo: {{ allievi[1].nome}}
 </div>
+
+
 <router-outlet></router-outlet>
