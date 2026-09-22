@@ -14,14 +14,11 @@ images = [
   {id: 3, label: 'Tiramisu'},
 ]
 
-  percorsoFoto = "../assets/images/imageBg-1.jpg";
+  percorsoFoto = "../assets/images/imageBg-";
 
 
 allievi = [
-  {nome: 'alone', citta: 'roma'},
-  {nome: 'itria', citta: 'roma'},
-  {nome: 'mary', citta: 'napoli'},
-  {nome: 'alone', citta: 'milano'},
+
 ];
 
 }

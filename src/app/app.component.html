@@ -23,14 +23,15 @@
 </nav>
 <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://t3.ftcdn.net/jpg/03/54/79/46/360_F_354794664_2Dd4cHPwpdRSouUwJieXxDw5f29ZmhOf.jpg" class="d-block w-100" alt="...">
-    </div>
+    <div class="carousel-item active" *ngFor=" let image of images">
+      <img [src]="percorsoFoto + image.id + '.jpg'" class="d-block w-100" [alt]="image.label">
+      <h2>{{ image.label }}</h2>
+  </div>
 
    </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -49,7 +50,10 @@
   <p class="paragrafo">ecco il testo dentro al <span>paragrafo</span>
   </p>
   eccon un altro <span>testo</span>
-  allievo: {{ allievi[1].nome}}
+  <ul *ngIf="allievi.length" >
+    <li *ngFor="let allievo of allievi"> allievo: {{ allievo.nome }} nato a {{ allievo.citta }} </li>
+  </ul>
+  <h3 *ngIf="!allievi.length"> siamo spiacenti ma non ci sono allievi</h3>>
 </div>
 
 
