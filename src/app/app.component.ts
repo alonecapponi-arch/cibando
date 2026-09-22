@@ -18,7 +18,10 @@ images = [
 
 
 allievi = [
-
+ {nome: 'alone', citta: 'roma'},
+  {nome: 'itria', citta: 'roma'},
+  {nome: 'mary', citta: 'napoli'},
+  {nome: 'alone', citta: 'milano'},
 ];
 
 }
