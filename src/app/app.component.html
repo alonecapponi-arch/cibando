@@ -21,40 +21,53 @@
     </div>
   </div>
 </nav>
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" *ngFor=" let image of images">
-      <img [src]="percorsoFoto + image.id + '.jpg'" class="d-block w-100" [alt]="image.label">
-      <h2>{{ image.label }}</h2>
-  </div>
+<ngb-carousel *ngIf="images">
 
-   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+	<ng-template ngbSlide *ngFor="let image of images">
+		<div class="picsum-img-wrapper">
+			<img [src]="percorsoFoto + image.id + '.jpg' " [alt]="image.label" />
+		</div>
+		<div class="carousel-caption">
+			<h3>{{ image.label }}</h3>
+		</div>
+	</ng-template>
+
+</ngb-carousel>
 
 
 <div class="contenitore">
-  <h2>App di esempiooo</h2>
-  <p class="paragrafo">ecco il testo dentro al <span>paragrafo</span>
-  </p>
-  eccon un altro <span>testo</span>
-  <ul *ngIf="allievi.length" >
-    <li *ngFor="let allievo of allievi"> allievo: {{ allievo.nome }} nato a {{ allievo.citta }} </li>
-  </ul>
-  <h3 *ngIf="!allievi.length"> siamo spiacenti ma non ci sono allievi</h3>>
+  <h2>Benvenuti su Cibando</h2>
+  <p class="paragrafo">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nam veniam delectus tempora cupiditate placeat,
+    deleniti saepe distinctio? Aut in animi nobis quia, blanditiis doloribus pariatur, natus debitis earum, aperiam
+    deleniti ea! Dolores sed odio deserunt facilis aspernatur cumque quas tenetur eius, sequi beatae hic neque incidunt
+    quaerat suscipit quasi, ut fugit asperiores explicabo veniam! Ducimus esse ipsa, modi dignissimos quod ex placeat
+    iusto laboriosam amet corporis similique officia ut quasi ipsam velit molestiae, consequuntur aut unde ad sunt laudantium!
+    Iusto eveniet corrupti ullam placeat iure, error ea laborum fugiat ipsam. Nihil repellendus neque minus veniam ipsa repudiandae
+    ipsum eum tempora nulla perspiciatis molestiae, optio dignissimos pariatur officiis cupiditate culpa! Perferendis, quos saepe
+    debitis molestiae ex tenetur iure in harum voluptatem odit libero quis totam cum? Officia reprehenderit, veniam excepturi porro
+    rchitecto ipsa beatae? Sequi ducimus enim amet aspernatur expedita magnam necessitatibus earum vel, reiciendis labore at? Minus
+    atque quibusdam sequi vitae, quisquam voluptate fugit neque reprehenderit ut cum, in architecto asperiores quaerat dolores eaque
+    quos. Quam veniam aliquid vitae doloribus, consectetur inventore facilis cumque, labore porro, recusandae sunt? Ipsa quidem veritatis
+    commodi neque aut harum ab officia suscipit excepturi, corrupti ea consequuntur quisquam ad, recusandae aspernatur dicta
+    exercitationem amet totam vel corporis velit! Nisi eius neque reprehenderit et quidem velit, impedit voluptates repudiandae
+    nesciunt quos dolore quia. Expedita dolore aperiam voluptatum consectetur, praesentium consequatur natus veniam repudiandae
+    mollitia quos aspernatur iure dolor. Vitae, atque. Quo dolores ex mollitia dolorum illum repellendus, earum iste fugiat neque eaque
+    </p>
+ </div>
+<div [style]="'background-color:' + colore">
+  Ecco il div del colore
 </div>
 
+<input type="text"[(ngModel)]="coloreScelto"><button (click)="onChangeColore()">Cambio Colore</button> valore della variabile: {{coloreScelto}}
+ <br><br>
+
+
+<div id="contenitore-switch" [ngSwitch]="colore">
+   <div *ngSwitchCase="'green'"> questo DIV conparirà solamente se il colore scelto sarà verde</div>
+   <div *ngSwitchCase="'red'"> questo DIV conparirà solamente se il colore scelto sarà rosso</div>
+   <div *ngSwitchCase="'yellow'"> questo DIV conparirà solamente se il colore scelto sarà giallo</div>
+    <div *ngSwitchDefault> questo DIV conparirà solamente se è stato scelto nessun colore</div>
+</div>
 
 <router-outlet></router-outlet>
