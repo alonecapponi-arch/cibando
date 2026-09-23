@@ -8,23 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cibando';
+  evidenziato = false;
 
-images = [
-  {id: 1, label: 'Spaghetti al sugo'},
-  {id: 2, label: 'tagliata di manzo'},
-  {id: 3, label: 'Tiramisu'},
-];
-
-percorsoFoto = '../assets/images/imageBg-';
+  onEvidenziato(){
+    this.evidenziato = !this.evidenziato;
+  }
 
 
 
-coloreScelto = 'green';
-
-colore = 'gray';
-
-onChangeColore(){
-  this.colore = this.coloreScelto;
-}
-
-}
+  }

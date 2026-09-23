@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { CarouselComponent } from './shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

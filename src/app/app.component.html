@@ -21,22 +21,9 @@
     </div>
   </div>
 </nav>
-<ngb-carousel *ngIf="images">
-
-	<ng-template ngbSlide *ngFor="let image of images">
-		<div class="picsum-img-wrapper">
-			<img [src]="percorsoFoto + image.id + '.jpg' " [alt]="image.label" />
-		</div>
-		<div class="carousel-caption">
-			<h3>{{ image.label }}</h3>
-		</div>
-	</ng-template>
-
-</ngb-carousel>
-
-
+<app-carousel></app-carousel>
 <div class="contenitore">
-  <h2>Benvenuti su Cibando</h2>
+  <h2 [ngClass]="evidenziato ? 'testoEvidenziato' : '' " (click)="onEvidenziato()" style="cursor: pointer;">Benvenuti su Cibando</h2>
   <p class="paragrafo">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nam veniam delectus tempora cupiditate placeat,
     deleniti saepe distinctio? Aut in animi nobis quia, blanditiis doloribus pariatur, natus debitis earum, aperiam
@@ -55,19 +42,5 @@
     mollitia quos aspernatur iure dolor. Vitae, atque. Quo dolores ex mollitia dolorum illum repellendus, earum iste fugiat neque eaque
     </p>
  </div>
-<div [style]="'background-color:' + colore">
-  Ecco il div del colore
-</div>
-
-<input type="text"[(ngModel)]="coloreScelto"><button (click)="onChangeColore()">Cambio Colore</button> valore della variabile: {{coloreScelto}}
- <br><br>
-
-
-<div id="contenitore-switch" [ngSwitch]="colore">
-   <div *ngSwitchCase="'green'"> questo DIV conparirà solamente se il colore scelto sarà verde</div>
-   <div *ngSwitchCase="'red'"> questo DIV conparirà solamente se il colore scelto sarà rosso</div>
-   <div *ngSwitchCase="'yellow'"> questo DIV conparirà solamente se il colore scelto sarà giallo</div>
-    <div *ngSwitchDefault> questo DIV conparirà solamente se è stato scelto nessun colore</div>
-</div>
 
 <router-outlet></router-outlet>
