@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CarouselComponent {
 
-images = [
+images  = [
   {id: 1, label: 'Spaghetti al sugo'},
   {id: 2, label: 'tagliata di manzo'},
   {id: 3, label: 'Tiramisu'},

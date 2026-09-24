@@ -1,30 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="../assets/images/icona-cibando.png" class="logo" alt="Logo">
-        Cibando</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><i class="pi pi-globe"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="pi pi-book"></i> Ricette</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="pi pi-envelope"></i> Contatti</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<app-header></app-header>
 <app-carousel></app-carousel>
 <div class="contenitore">
   <h2 [ngClass]="evidenziato ? 'testoEvidenziato' : '' " (click)="onEvidenziato()" style="cursor: pointer;">Benvenuti su Cibando</h2>
-  <p class="paragrafo">
+  <p class="paragrafo" [ngStyle]="{'background-color': evidenziato === true ? 'yellow' : 'white'}">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nam veniam delectus tempora cupiditate placeat,
     deleniti saepe distinctio? Aut in animi nobis quia, blanditiis doloribus pariatur, natus debitis earum, aperiam
     deleniti ea! Dolores sed odio deserunt facilis aspernatur cumque quas tenetur eius, sequi beatae hic neque incidunt
