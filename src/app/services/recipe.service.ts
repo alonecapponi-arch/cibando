@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 import { RECIPES } from '../mocks/recipe.mock';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,4 +9,9 @@ import { RECIPES } from '../mocks/recipe.mock';
 export class RecipeService {
 
   constructor() { }
+
+
+getRecipes(): Observable<Recipe[]> {
+    return of(RECIPES);
+  }
 }
