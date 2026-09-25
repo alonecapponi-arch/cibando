@@ -8,12 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cibando';
-  evidenziato = false;
 
-  onEvidenziato(){
-    this.evidenziato = !this.evidenziato;
+
+  constructor() {
+    console.log('AppComponent constructor');
+  }
+
+  ngOnInit(): void {
+    console.log('AppComponent ngOnInit');
   }
 
 
-
-  }
+}
