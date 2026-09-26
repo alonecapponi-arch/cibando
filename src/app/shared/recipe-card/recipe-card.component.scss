@@ -1,0 +1,30 @@
+@import '../../../styles/colori.scss';
+
+// inserendo l'import  recupero la paletta colori da me configurata
+.container-card {
+  display: block;
+  float: left;
+  width: 23%;
+  margin-left: 1.5%;
+  margin-bottom: 20px;
+
+  .card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: $primary-color-1;
+    text-shadow: none;
+  }
+
+  .card-image {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .card-text {
+    text-align: justify;
+    color: $secondary-color-1;
+
+}
+
+}

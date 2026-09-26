@@ -12,7 +12,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class RecipesComponent implements OnInit {
 // creo una variabile di tipo Recipe[] per contenere le ricette
 ricette: Recipe[];
-
+// 'ricette' è la variabile del componente padre che andremo ad inserire nel componente padre (recipes.component.html)
 constructor(private recipeService: RecipeService) { }
 
 ngOnInit(): void {

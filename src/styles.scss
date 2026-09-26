@@ -2,6 +2,8 @@
 
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~primeicons/primeicons.css';
+@import './styles/colori.scss';
+
 body {
     font-family: 'Montserrat', sans-serif;
   }
@@ -15,7 +17,7 @@ nav {
     margin-right: 10px;
 }
   .bg-dark {
-    background-color: #8e210b!important;
+    background-color: $primary-color-1!important;
   }
 .contenitore {
   padding: 16px;
@@ -31,4 +33,10 @@ h5 {
   font-size: 15px;
   text-shadow: 2px 3px 3px #000000;
 }
+footer {
+  clear: both;
+  background-color: $primary-color-1;
+  height: 150px;
+}
+
 

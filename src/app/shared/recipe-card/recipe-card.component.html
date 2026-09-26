@@ -1,0 +1,35 @@
+
+<!--Prendiamo il modello card da Bootstrap e poi andiamo a modificarlo
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>-->
+<div class="container-card" *ngFor="let recipe of recipes">
+<div class="card">
+<div class="card-image" [ngStyle]="{'background-image': 'url('+ recipe.image +')'}"></div>
+  <div class="card-body">
+    <h5 class="card-title">{{recipe.title}}</h5>
+    <p class="card-text">{{recipe.description}}</p>
+    <div style="text-align: center;">
+    <a href="#" class="btn btn-danger btn-lg fw-bold fs-4 ">visualizza</a>
+        <!--btn è una classe di bootstrap quindi possiamo andare a vedere i comandi per modificarlo sul loro sito o usare css-->
+    </div>
+  </div>
+</div>
+</div>
+<!--inserisco un div contenitore div con classe container-card (div.container-card crea il div con la classe)
+nel div inserisco un ciclo con le ricette *ngFor="let recipe of recipes"
+tolgo <img src="" class="card-img-top" alt="..."> e style="width: 18rem;"
+<div class="card-image" [ngStyle]="{'background-image': 'url('+ recipe.image +')'}"></div>
+l'immagine la mettiamo uno un bg di un div così rivediamo ngStyle
+Card title lo cambio in {{recipe.title}}
+Some quick example text to build on the card title and make up the bulk of the card’s content. lo cambio
+{{recipe.description}}
+
+finito questo vado in css a gestire le classi
+-->
+
