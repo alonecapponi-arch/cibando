@@ -15,9 +15,11 @@
     <h5 class="card-title">{{recipe.title}}</h5>
     <p class="card-text">{{recipe.description}}</p>
     <div style="text-align: center;">
-    <a href="#" class="btn btn-danger btn-lg fw-bold fs-4 ">visualizza</a>
+    <a class="btn btn-primary" routerLink="/dettaglio/{{recipe._id}}">visualizza</a>
         <!--btn è una classe di bootstrap quindi possiamo andare a vedere i comandi per modificarlo sul loro sito o usare css-->
-    </div>
+        <!-- quando si usa routerLink si toglie href="#"-->
+         <!--routerLink per il dettaglio dovendo cercare tramite _id uso l'interpolazione {{repipe.id}}-->
+      </div>
   </div>
 </div>
 </div>

@@ -10,6 +10,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { HomeComponent } from './components/home/home.component';
 import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component';
+import { DetailComponent } from './components/recipes/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component'
     HeaderComponent,
     RecipesComponent,
     HomeComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
