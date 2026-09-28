@@ -15,7 +15,9 @@
     <h5 class="card-title">{{recipe.title}}</h5>
     <p class="card-text">{{recipe.description}}</p>
     <div style="text-align: center;">
-    <a class="btn btn-primary" routerLink="/dettaglio/{{recipe._id}}">visualizza</a>
+    <a class="btn btn-primary" routerLink="dettaglio/{{recipe.title}}/{{recipe._id}}">visualizza</a>
+    <!-- lo / davanti ad un percorso (/dettaglio/) è un percorso assoluto, ignora la posizione di partenza
+     se invece lo tolgo il percorso è relativo a dove mi trovo-->
         <!--btn è una classe di bootstrap quindi possiamo andare a vedere i comandi per modificarlo sul loro sito o usare css-->
         <!-- quando si usa routerLink si toglie href="#"-->
          <!--routerLink per il dettaglio dovendo cercare tramite _id uso l'interpolazione {{repipe.id}}-->

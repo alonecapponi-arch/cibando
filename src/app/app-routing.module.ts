@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // modulo che si occupa di gestire il routing e andranno inseriti solo i link delle pagine che voglio che vengano caricate in base al percorso dell'url, in questo caso non ci sono pagine da caricare quindi lascio vuoto
 import { HomeComponent } from './components/home/home.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
+import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
 import { DetailComponent } from './components/recipes/detail/detail.component';
+
 
 
 // constante che contiene le rotte dell'applicazione, in questo caso non ci sono rotte da caricare quindi lascio vuoto
@@ -12,8 +14,12 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   //path: 'etichetta', component: NomeComponente che va aperto
   {path: 'home', component: HomeComponent},
-  {path: 'ricette', component: RecipesComponent},
-  {path: 'dettaglio/:_id' , component: DetailComponent},
+  {path: 'ricette', component: RecipesComponent, children: [
+    {path: '', component: RecipeListComponent, pathMatch: 'full'},
+    {path: 'dettaglio/:title/:_id' , component: DetailComponent},
+  ]},
+  // :title/ per aver una url friendly
+  // ricette usa children per indicare che ha pagine che derivano da lei
   // /: è il codice di angular che stiamo passando un parametro _id
   {path:  '**', redirectTo: 'home',}
   // al posto di 'home' può esserci anche una pagina error 404
