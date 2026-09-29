@@ -1,24 +1,35 @@
-#fotoDett {
-  width: 100vw;
-  height: 40vh;
-  object-fit: cover;
-  display: block;
+@import '../../../../styles/colori.scss';
 
+.detail-image{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 450px;
+  width: 100%;
 }
-h2{
-  font-family: 'Homemade Apple', cursive;
-  font-size: 35px;
-  text-shadow: 2px 3px 3px #000000;
-  padding-top: 20px;
-  padding-left: 15px;
-}
-p {
-  padding-left: 15px;
-  padding-right: 15px;
-  text-align: justify;
+.container-detail{
+  display:block;
+  float: left;
+  width: 100%;
+  padding: 20px 40px;
 
-}
-span {
-  font-weight: bold;
+  .detail-title{
+    font-family: 'Homemade Apple', cursive;
+    font-size: 30px;
+    color: $primary-color-1;
+    }
+
+  .detail-description{
+    text-align: justify;
+    span {
+      font-weight: bold;
+    }
+  }
+  .difficulty {
+    width: 120px;
+    display: block;
+    //con display: block va a capo
+  }
+
 
 }

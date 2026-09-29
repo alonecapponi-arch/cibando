@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'ricette', component: RecipesComponent, children: [
     {path: '', component: RecipeListComponent, pathMatch: 'full'},
-    {path: 'dettaglio/:title/:_id' , component: DetailComponent},
+    {path: 'dettaglio/:title/:_id' , component: DetailComponent}
   ]},
   // :title/ per aver una url friendly
   // ricette usa children per indicare che ha pagine che derivano da lei

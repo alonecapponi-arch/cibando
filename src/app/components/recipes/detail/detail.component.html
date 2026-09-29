@@ -1,15 +1,16 @@
-<div >
-  <img id=fotoDett src="{{ricetta.image}}">
-   </div>
-
-<h2>{{ricetta.title}}</h2>
-<p>
-  {{ricetta.description}}
-</p>
-<p>
-  <span>Difficoltà:</span> {{ricetta.difficulty}}
-</p>
-<p>
-  <span>Data:</span> {{ricetta.date}}
-</p>
-
+<div *ngIf="ricetta">
+    <div class="detail-image" [ngStyle]="{'background-image':'url('+ ricetta.image +')'}"></div>
+  <div class= "container-detail">
+      <h2 class="detail-title">{{ricetta.title}}</h2>
+      <p class="detail-description">{{ricetta.description}}</p>
+      <p class="detail-description"><span>Difficoltà: </span><img [src]="percorsoDifficolta+ricetta.difficulty+'.png'" class="difficulty"></p>
+      <p class="detail-description"><span>Data: </span>{{ricetta.date}}</p>
+  </div>
+</div>
+<div *ngIf="!ricetta">
+ Siamo spiacenti la ricetta da lei cercata non esiste più
+</div>
+<!--Richiesta: allargare l'immagine a tutto schermo ma con un'altezza ridotta
+modificare il titolo ricetta con il carattere alternativo e farla di colore uguale al predefinito
+giustificare il testo descrizione
+mettre difficoltà e data in grassetto-->
