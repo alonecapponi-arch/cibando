@@ -13,7 +13,7 @@
 <div class="card-image" [ngStyle]="{'background-image': 'url('+ recipe.image +')'}" (click)= "inviaTitolo(recipe.title, recipe.difficulty)"></div>
   <div class="card-body">
     <h5 class="card-title">{{recipe.title}}</h5>
-    <p class="card-text">{{recipe.description | slice: 0:250}}...</p>
+    <p class="card-text">{{recipe.description | slice: 0:accorciaDescrizione(recipe.description)}} ...</p>
     <a class="btn btn-primary" routerLink="dettaglio/{{recipe.title}}/{{recipe._id}}">visualizza</a>
     <!-- lo / davanti ad un percorso (/dettaglio/) è un percorso assoluto, ignora la posizione di partenza
      se invece lo tolgo il percorso è relativo a dove mi trovo-->

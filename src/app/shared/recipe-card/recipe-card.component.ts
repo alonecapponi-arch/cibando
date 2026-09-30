@@ -21,6 +21,15 @@ inviaTitolo(titolo: string, diff: number)  {
   this.messaggio.emit(valoriDaInviare);
 }
 
-}
+accorciaDescrizione(descrizione):number{
+  const lunghezzaMassima =195;
+    if(descrizione.length <= lunghezzaMassima){
+      return lunghezzaMassima;
+    } else {
+      let ultimaPosizioneSpazio = descrizione.indexOf(' ', lunghezzaMassima);
+      return ultimaPosizioneSpazio;
+    }
 
+}
+}
 // B2 obiettivo) creare una variabile chiamata 'recipe' tipizzata con il modello e decorata
