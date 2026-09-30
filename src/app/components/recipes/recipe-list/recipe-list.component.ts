@@ -10,6 +10,8 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class RecipeListComponent implements OnInit{
 ricette: Recipe[];
+titoloRicevuto: string;
+difficoltaRicevuta: number;
 
 constructor(private recipeService: RecipeService) { }
 
@@ -25,6 +27,15 @@ ngOnInit(): void {
 
  })
 }
+
+riceviMessaggio(e: any){
+  this.titoloRicevuto == e.titolo ? this.titoloRicevuto = '' : this.titoloRicevuto = e.titolo;
+  this.difficoltaRicevuta == e.diff ? this.difficoltaRicevuta = null : this.difficoltaRicevuta  = e.diff;
+}
+// o OPERATORE TERNARIO
+//this.titoloRicevuto == e ? this.titoloRicevuto = '' : this.titoloRicevuto = e;
+
+
 }
 // 1 inseriamo nel Componet OnInit come prima cosa
 // 1 implementiamo OnInit per poter utilizzare il metodo ngOnInit che viene eseguito quando
