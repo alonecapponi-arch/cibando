@@ -25,11 +25,11 @@ ngOnInit(): void {
 onEvidenziato(){
     this.evidenziato = !this.evidenziato;
   }
-    prendiRicette(){
-      this.recipeService.getRecipes().subscribe({
-        next: (res) => {
-          this.ricette = res;
-          this.ricette = this.ricette.sort((a,b) => b._id - a._id).slice(0,4);
+prendiRicette(){
+    this.recipeService.getRecipes().subscribe({
+      next: (res) => {
+        this.ricette = res;
+        this.ricette = this.ricette.sort((a,b) => b._id - a._id).slice(0,4);
         },
       error: (err) => {
         console.log(err);

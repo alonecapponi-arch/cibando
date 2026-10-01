@@ -27,7 +27,7 @@ getRecipe(id: number): Observable<Recipe | undefined> {
 
   return of (recipe);
   // inseriamo "of (recipe)" perchè è sotto mock, nel momento che la liberiamo
-  // diventa return ricipe;
+  // diventa return recipe;
 }
 
 }
