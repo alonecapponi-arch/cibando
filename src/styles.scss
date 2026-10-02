@@ -38,5 +38,10 @@ footer {
   background-color: $primary-color-1;
   height: 150px;
 }
-
+.p-password {
+  display:block!important;
+}
+.p-inputtext, .p-password-input {
+  width: 100%!important;
+}
 

@@ -115,7 +115,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <i class="pi pi-lock"></i><input type="password" id="form3Example4c" class="form-control" formControlName="password"/>
+                      <i class="pi pi-lock"></i><p-password [toggleMask]="true" class="form-control" formControlName="password" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){6,16}$"></p-password>
                       <label class="form-label" for="form3Example4c">Password</label>
                       <p class="help is-danger" *ngIf="!form.get('password').valid && form.get('password').touched">Il campo è obbligatorio</p>
                       <p class="help is-danger" *ngIf="form.controls.password.hasError('pattern') && form.get('password').touched">
@@ -127,7 +127,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <i class="pi pi-lock"></i><input type="password" id="form3Example4cd" class="form-control" formControlName="ripetiPassword"/>
+                      <i class="pi pi-lock"></i><p-password [toggleMask]="true" class="form-control" formControlName="ripetiPassword " strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){6,16}$"></p-password>
                       <label class="form-label" for="form3Example4cd">Ripeti password</label>
                       <p class="help is-danger" *ngIf="!form.get('ripetiPassword').valid && form.get('ripetiPassword').touched">
                         Il campo è obbligatorio
