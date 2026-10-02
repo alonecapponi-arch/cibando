@@ -78,7 +78,7 @@
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
+        <div class="card text-black" id="bordo">
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -90,19 +90,20 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" formControlName="name"/>
-                      <label class="form-label" for="form3Example1c">Nome</label>
-                      <p class="help is-danger" *ngIf="!form.get('name').valid && form.get('name').touched">
+                     <i class="pi pi-user"></i><input type="text" id="form3Example1c" class="form-control" formControlName="name"/>
+                      <label class="form-label" for="form3Example1c">Il tuo nome</label>
+                      <p class="help is-danger"  *ngIf="!form.get('name').valid && form.get('name').touched">
                         Il campo è obbligatorio
                       </p>
+
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" formControlName="email"/>
-                      <label class="form-label" for="form3Example3c">Email</label>
+                      <i class="pi pi-envelope"></i><input type="email" id="form3Example3c" class="form-control" formControlName="email"/>
+                      <label class="form-label" for="form3Example3c">La tua Email</label>
                       <!-- <p class="help is-danger" *ngIf="!form.get('email').valid && form.get('email').touched">
                         Il campo non è stato compilato correttamente
                       </p> messaggio singolo -->
@@ -114,10 +115,11 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" formControlName="password"/>
+                      <i class="pi pi-lock"></i><input type="password" id="form3Example4c" class="form-control" formControlName="password"/>
                       <label class="form-label" for="form3Example4c">Password</label>
-                      <p class="help is-danger" *ngIf="!form.get('password').valid && form.get('password').touched">
-                        Il campo è obbligatorio
+                      <p class="help is-danger" *ngIf="!form.get('password').valid && form.get('password').touched">Il campo è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.controls.password.hasError('pattern') && form.get('password').touched">
+                        La password deve essere minimo 6 caratteri e max 16, deve contenere almeno un numero, una lettera maiuscola, una lettera minuscola e un carattere speciale
                       </p>
                     </div>
                   </div>
@@ -125,10 +127,13 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" formControlName="ripetiPassword"/>
-                      <label class="form-label" for="form3Example4cd">Ripeti la password</label>
+                      <i class="pi pi-lock"></i><input type="password" id="form3Example4cd" class="form-control" formControlName="ripetiPassword"/>
+                      <label class="form-label" for="form3Example4cd">Ripeti password</label>
                       <p class="help is-danger" *ngIf="!form.get('ripetiPassword').valid && form.get('ripetiPassword').touched">
                         Il campo è obbligatorio
+                      </p>
+                      <p class="help is-danger" *ngIf="form.getError('diversa') && form.get('ripetiPassword').touched">
+                        Le password non corrispondono
                       </p>
                     </div>
                   </div>
@@ -136,12 +141,12 @@
                   <div class="form-check d-flex justify-content-center mb-5">
                     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" formControlName="accetto"/>
                     <label class="form-check-label" for="form2Example3">
-                      Accetto tutti i termini di servizio <a href="#!">Termini di servizio</a>
+                      Dichiaro di accettare i <a href="https://link.com/it-hr/terms" class="color-custom">Termini di servizio</a>
                     </label>                  </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <p *ngIf="form.valid"> Il form è correttamente compilato </p>
-                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" [disabled]="!form.valid">Registrati</button>
+                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"  [disabled]="!form.valid">Registrati</button>
                   </div>
 
                 </form>
@@ -149,8 +154,8 @@
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="../../../../assets/images/imageRg-1.jpg"
-                  class="img-fluid" alt="Sample image">
+                <img src="../../../../assets/images/cibo-reg1.webp"
+                  alt="Sample image">
 
               </div>
             </div>

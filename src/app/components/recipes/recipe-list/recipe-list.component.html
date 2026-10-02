@@ -1,10 +1,11 @@
-
 <div id='container-title'>
 <h2>Le nostre ricette :</h2>
-{{titoloRicevuto}}
-{{difficoltaRicevuta}}
-</div>
-
+<div *ngIf="titoloRicevuto">
+      {{titoloRicevuto}}
+      <br>
+      {{difficoltaRicevuta}}
+ </div>
+ </div>
 <!--recipes.component è il padre di recipe-card
 consuetudine vuole lo stesso nome fra target e sorgente-->
 <div>

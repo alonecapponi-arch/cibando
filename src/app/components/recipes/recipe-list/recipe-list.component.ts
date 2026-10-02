@@ -30,7 +30,7 @@ ngOnInit(): void {
 
 riceviMessaggio(e: any){
   this.titoloRicevuto == e.titolo ? this.titoloRicevuto = '' : this.titoloRicevuto = e.titolo;
-  this.difficoltaRicevuta == e.diff ? this.difficoltaRicevuta = null : this.difficoltaRicevuta  = e.diff;
+  this.difficoltaRicevuta = e.diff
 }
 // o OPERATORE TERNARIO
 //this.titoloRicevuto == e ? this.titoloRicevuto = '' : this.titoloRicevuto = e;

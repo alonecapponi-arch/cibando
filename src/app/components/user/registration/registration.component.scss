@@ -1,6 +1,30 @@
+@import '../../../../styles/colori.scss';
+
+#bordo{
+  border-radius: 25px;
+  border-color: $primary-color-1;
+}
+.help{
+  font-size: 10px;
+  font-weight: bold;
+  color: $primary-color-1;
+  position: relative;
+  float: right;
+}
+.color-custom{
+  color: $primary-color-1;
+  text-decoration: none;
+}
+
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 input.ng-valid.ng-touched {
   border: 1px solid rgb(35, 245, 8);
+}
+#registra {
+  background-color: $primary-color-1;
+  color: white;
+  border-radius: 25px;
+  border-color: $primary-color-1;
 }
