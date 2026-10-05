@@ -127,13 +127,11 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <i class="pi pi-lock"></i><p-password [toggleMask]="true" class="form-control" formControlName="ripetiPassword " strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){6,16}$"></p-password>
-                      <label class="form-label" for="form3Example4cd">Ripeti password</label>
-                      <p class="help is-danger" *ngIf="!form.get('ripetiPassword').valid && form.get('ripetiPassword').touched">
-                        Il campo è obbligatorio
-                      </p>
-                      <p class="help is-danger" *ngIf="form.getError('diversa') && form.get('ripetiPassword').touched">
-                        Le password non corrispondono
+                      <i class="pi pi-lock"></i><input type="password" id="form3Example4cd" class="form-control" formControlName="ripetiPassword" (ngModelChange)="convalidaPassword()"/>
+
+                        <label class="form-label" for="form3Example4cd">Ripeti password</label>
+                        <!-- <p class="help is-danger" *ngIf="form.getError('diversa') && form.get('ripetiPassword').touched">La password inserita non combacia</p> -->
+                        <p class="help is-danger" *ngIf="!convalidaPassword() && form.get('ripetiPassword').dirty">La password
                       </p>
                     </div>
                   </div>
@@ -146,8 +144,8 @@
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <p *ngIf="form.valid"> Il form è correttamente compilato </p>
-                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"  [disabled]="!form.valid">Registrati</button>
-                  </div>
+                     <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Registrati</button>
+                    </div>
 
                 </form>
 

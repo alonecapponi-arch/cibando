@@ -24,3 +24,12 @@
  <h2 id="ultime">Le ultime ricette</h2>
   <app-recipe-card [recipes]="ricette"></app-recipe-card>
  </div>
+
+ <div id="dati-utente" *ngIf="nome">
+<h2> GRazie per esserti registrato:</h2>
+<ul>
+  <li>Nome:{{ nome }}</li>
+  <li>Email:{{ email }}</li>
+</ul>
+
+ </div>

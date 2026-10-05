@@ -2,7 +2,7 @@ import { HeaderComponent } from './../../shared/header/header.component';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe.service';
-
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -13,11 +13,23 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class HomeComponent implements OnInit{
   ricette: Recipe[];
   evidenziato = false;
-constructor(private recipeService: RecipeService) { }
+
+  nome: string;
+  email: string;
+
+constructor(private recipeService: RecipeService, private userService: UserService) { }
 
 
 ngOnInit(): void {
   this.prendiRicette()
+
+  this.userService.datiUtente.subscribe(
+    (res: any) =>{
+      this.nome = res.nome;
+      this.email = res.email;
+    }
+
+  )
 
 
 }
