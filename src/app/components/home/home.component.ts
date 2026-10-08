@@ -43,7 +43,8 @@ onEvidenziato(){
 
 open(content: any, titoletto?: string) { // titoletto è opzionale, se non viene passato il valore sarà undefined
     let titolo = titoletto;
-  this.modalService.open(content, {ariaLabelledBy: 'modal registration', size: 'lg', centered: true}).result.then(
+  this.modalService.open(content, {ariaLabelledBy: 'modal registration', size: 'lg', centered: true}).result
+    .then(
     (res) => {
       console.log('azione da eseguire, ecco il titolo arrivato: ', titolo) // qui puoi mettere un'azione da eseguire in base al risultato della modale
     }).catch((res) => {
