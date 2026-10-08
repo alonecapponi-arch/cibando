@@ -4,7 +4,7 @@
       <h2 class="detail-title">{{ricetta.title}}</h2>
       <p class="detail-description">{{ricetta.description}}</p>
       <p class="detail-description"><span>Difficoltà: </span><img [src]="percorsoDifficolta+ricetta.difficulty+'.png'" class="difficulty"></p>
-      <p class="detail-description"><span>Data: </span>{{ricetta.date}}</p>
+      <p class="detail-description"><span>Data: </span>{{ricetta.createdAt | slice: 0:10}}</p>
   </div>
 </div>
 <div *ngIf="!ricetta">
@@ -13,4 +13,4 @@
 <!--Richiesta: allargare l'immagine a tutto schermo ma con un'altezza ridotta
 modificare il titolo ricetta con il carattere alternativo e farla di colore uguale al predefinito
 giustificare il testo descrizione
-mettre difficoltà e data in grassetto-->
+mette difficoltà e data in grassetto-->

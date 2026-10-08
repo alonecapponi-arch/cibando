@@ -8,7 +8,11 @@
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>-->
-<div class="container-card" *ngFor="let recipe of recipes">
+<div id="container-paginatore" *ngIf="pag != 'home'">
+
+  <p-paginator (onPageChange)="paginate($event)" [rows]="ricettePerPagina" [totalRecords]="totaleRicette" />
+</div>
+<div class="container-card" *ngFor="let recipe of recipes | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina">
 <div class="card">
 <div class="card-image" [ngStyle]="{'background-image': 'url('+ recipe.image +')'}" (click)= "inviaTitolo(recipe.title, recipe.difficulty)"></div>
   <div class="card-body">

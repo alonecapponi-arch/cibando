@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
+  passwordValida: boolean;
+
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.email, Validators.required]),
@@ -16,7 +18,7 @@ export class RegistrationComponent {
     ripetiPassword: new FormControl('', Validators.required),
     accetto: new FormControl(false, Validators.requiredTrue),
   },
-  [CustomValidators.MatchValidator('password', 'ripetiPassword')],
+  //[CustomValidators.MatchValidator('password', 'ripetiPassword')],
 );
 
 constructor(private userService: UserService, private router: Router) { }
@@ -25,10 +27,24 @@ constructor(private userService: UserService, private router: Router) { }
     console.log(this.form.value);
 
     const user = {nome: this.form.value.name, email: this.form.value.email};
+    // qui creo un oggetto user con i valori del form, che poi passo al servizio per inserirlo nel database
 
-    this.userService.datiUtente.next(user);
 
-    this.router.navigate(['home']);
+    const utente = this.form.value;
+
+    this.userService.insertUser(utente).subscribe({
+      next: (res) => {
+        console.log(res);
+
+        this.userService.datiUtente.next(user);
+        this.router.navigate(['home']);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+
+
   }
 
    convalidaPassword(): boolean{

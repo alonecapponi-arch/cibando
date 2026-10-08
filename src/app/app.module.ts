@@ -7,6 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
+import { PaginatorModule } from 'primeng/paginator';
+import{ HttpClientModule } from '@angular/common/http';
 
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -36,7 +38,9 @@ import { RegistrationComponent } from './components/user/registration/registrati
     FormsModule,
     ReactiveFormsModule,
     PasswordModule,
-    DividerModule
+    DividerModule,
+    PaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

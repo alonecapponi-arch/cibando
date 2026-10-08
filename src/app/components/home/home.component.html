@@ -22,14 +22,54 @@
  </div>
  <div >
  <h2 id="ultime">Le ultime ricette</h2>
-  <app-recipe-card [recipes]="ricette"></app-recipe-card>
+  <app-recipe-card pag="home" ></app-recipe-card>
  </div>
 
- <div id="dati-utente" *ngIf="nome">
-<h2> GRazie per esserti registrato:</h2>
-<ul>
-  <li>Nome:{{ nome }}</li>
-  <li>Email:{{ email }}</li>
-</ul>
+<button (click)="open(modalRegistrazione)">APRI MODALE</button>
+<button (click)="open(modalDue, titolo)">APRI MODALE DUE</button>
 
- </div>
+<ng-template #modalRegistrazione let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <h2> Grazie per esserti registrato:</h2>
+      <ul>
+        <li>
+            Nome:{{ nome }}
+        </li>
+        <li>
+            Email:{{ email }}
+        </li>
+      </ul>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="modal.dismiss()">ANNULLA</button>
+
+
+  </div>
+</ng-template>
+
+<ng-template #modalDue let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <h2> Grazie </h2>
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="modal.dismiss()">ANNULLA</button>
+
+
+  </div>
+</ng-template>
+
+
+
+
+<!--struttura della nostra modale, con header, body e footer. Il footer ha due bottoni, uno per chiudere la modale e uno per confermare l'azione. -->

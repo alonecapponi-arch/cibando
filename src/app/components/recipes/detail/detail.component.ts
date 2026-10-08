@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-detail',
@@ -19,13 +19,16 @@ export class DetailComponent implements OnInit{
     private recipeService: RecipeService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private http: HttpClient
   ) {}
 ngOnInit(): void {
   this.onGetRecipe();
 }
 // PRIMO METODO TRAMITE SNAPSHOT + bella perchè + completa
 onGetRecipe(): void{
-  const id = Number(this.activatedRoute.snapshot.paramMap.get('_id'));
+  const id = (this.activatedRoute.snapshot.paramMap.get('_id'));
+
+
 
  this.recipeService.getRecipe(id).subscribe({
     next: (res) => {
