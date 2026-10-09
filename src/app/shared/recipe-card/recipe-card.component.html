@@ -19,6 +19,8 @@
     <h5 class="card-title">{{recipe.title}}</h5>
     <p class="card-text">{{recipe.description | slice: 0:accorciaDescrizione(recipe.description)}} ...</p>
     <a class="btn btn-primary" routerLink="dettaglio/{{recipe.title}}/{{recipe._id}}">visualizza</a>
+    <button class="pi pi-trash"severity="danger" rimuovi label="Elimina"></button>
+
     <!-- lo / davanti ad un percorso (/dettaglio/) è un percorso assoluto, ignora la posizione di partenza
      se invece lo tolgo il percorso è relativo a dove mi trovo-->
         <!--btn è una classe di bootstrap quindi possiamo andare a vedere i comandi per modificarlo sul loro sito o usare css-->
@@ -38,4 +40,22 @@ Some quick example text to build on the card title and make up the bulk of the c
 
 finito questo vado in css a gestire le classi
 -->
+<button (click)="open(modalCancellazione)">APRI MODALE</button>
 
+<ng-template #modalCancellazione let-modal>
+  <div class="modal-header"><h2>Rimozione Ricetta</h2>
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <h3> Conferma per cancellare:  {{form.value.title}}</h3>
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.dismiss()">ANNULLA</button>
+    <button type="submit" class="btn btn-primary" (click)="modal.close()">CONFERMA</button>
+
+
+  </div>
+</ng-template>

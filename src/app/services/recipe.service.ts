@@ -17,7 +17,6 @@ export class RecipeService {
 getRecipes(): Observable<Recipe[]> {
   //  return of(RECIPES);
   // return this.http.get<Recipe[]>(this.apiBaseUrl + '/');
-
   return this.http.get<Recipe[]>(`${this.apiBaseUrl}/`);
 }
   //versione con il backtick, che ci permette di inserire variabili all'interno della stringa
@@ -40,7 +39,10 @@ getRecipes(): Observable<Recipe[]> {
 // tramite arrow function (=>) e comparazione (===)
 
 getRecipe(id: string): Observable<Recipe> {
-  return this.http.get<Recipe>(`${this.apiBaseUrl}/${id}`); //versione con il backtick, che ci permette di inserire variabili all'interno della stringa
+  return this.http.get<Recipe>(`${this.apiBaseUrl}/${id}`);
+
+
+  //versione con il backtick, che ci permette di inserire variabili all'interno della stringa
   // qui facciamo la chiamata http al nostro endpoint /api/recipes/:id, che ci restituisce una sola ricetta
   // il metodo getRecipe() restituisce un Observable di tipo Recipe, che è una sola ricetta
   // il metodo get() di HttpClient restituisce un Observable di tipo any, quindi dobbiamo specificare il tipo di ritorno con <Recipe>
@@ -50,5 +52,8 @@ getRecipe(id: string): Observable<Recipe> {
   // inseriamo "of (recipe)" perchè è sotto mock, nel momento che la liberiamo
   // diventa return recipe;
 }
-
+delRecipe(id: string): Observable<Recipe> {
+  return this.http.delete<Recipe>(`${this.apiBaseUrl}/${id}`);
 }
+}
+

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef} from '@angular/core';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,7 +16,10 @@ ricette: Recipe[];
 titoloRicevuto: string;
 difficoltaRicevuta: number;
 
-constructor(private recipeService: RecipeService) { }
+
+
+
+constructor(private recipeService: RecipeService, private modalService: NgbModal, private router: Router) { }
 
 ngOnInit(): void {
  this.recipeService.getRecipes().subscribe({
@@ -26,6 +32,7 @@ ngOnInit(): void {
   }
 
  })
+
 }
 
 riceviMessaggio(e: any){
@@ -34,8 +41,6 @@ riceviMessaggio(e: any){
 }
 // o OPERATORE TERNARIO
 //this.titoloRicevuto == e ? this.titoloRicevuto = '' : this.titoloRicevuto = e;
-
-
 }
 // 1 inseriamo nel Componet OnInit come prima cosa
 // 1 implementiamo OnInit per poter utilizzare il metodo ngOnInit che viene eseguito quando

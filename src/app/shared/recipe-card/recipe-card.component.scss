@@ -26,5 +26,25 @@
     color: $secondary-color-1;
 
 }
+.pi-trash {
+  color: white;
+  background-color: $primary-color-1;
+  font-size: 25px;
+  float: right;
+  padding-top: 5px;
+  border-radius: 5px;
+}
 
+}
+h2{
+  text-align: center;
+  font-family: 'Homemade Apple', cursive;
+  font-size: 30px;
+  padding-top: 10px;
+}
+h3{
+  text-align: center;
+  font-family: 'Homemade Apple', cursive;
+  font-size: 20px;
+  padding-top: 10px;
 }
