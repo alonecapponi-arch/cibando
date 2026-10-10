@@ -4,6 +4,7 @@ import { Recipe } from '../models/recipe.model';
 import { RECIPES } from '../mocks/recipe.mock';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Subject, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,15 @@ import { HttpClient } from '@angular/common/http';
 export class RecipeService {
   apiBaseUrl = '/api/recipes'; // qui inseriamo l'url base dell'api, in questo caso è /api/recipes
 
+  datiRicetta = new ReplaySubject();
+
   constructor(private http: HttpClient) { }
+
+
+insertRecipe(recipe: any): Observable<any> {
+    return this.http.post<any>(`${this.apiBaseUrl}/`, recipe);
+  }
+
 
 
 getRecipes(): Observable<Recipe[]> {

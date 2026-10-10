@@ -6,6 +6,8 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
+import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component';
+import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.component';
 
 
 // constante che contiene le rotte dell'applicazione, in questo caso non ci sono rotte da caricare quindi lascio vuoto
@@ -18,7 +20,9 @@ const routes: Routes = [
     {path: '', component: RecipeListComponent, pathMatch: 'full'},
     {path: 'dettaglio/:title/:_id' , component: DetailComponent}
   ]},
+  {path: 'recipe-card', component: RecipeCardComponent},
   {path: 'registrazione', component: RegistrationComponent},
+  {path: 'new-recipe', component: NewRecipeComponent},
   // :title/ per aver una url friendly
   // ricette usa children per indicare che ha pagine che derivano da lei
   // /: è il codice di angular che stiamo passando un parametro _id

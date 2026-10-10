@@ -1,12 +1,11 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, Input, Output, EventEmitter, OnInit, ElementRef, ViewChild} from '@angular/core';
-// A) Input è un decoratore
 import { Recipe } from 'src/app/models/recipe.model';
-// B1) prima importo il modello 'Recipe'
 import { RecipeService } from 'src/app/services/recipe.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-
+// A) Input è un decoratore
+// B1) prima importo il modello 'Recipe'
 @Component({
   selector: 'app-recipe-card',
   templateUrl: './recipe-card.component.html',
@@ -16,11 +15,6 @@ export class RecipeCardComponent implements OnInit {
 recipes: Recipe[];
 @Output() messaggio = new EventEmitter();
 
-form = new FormGroup({
-    id: new FormControl(''),
-    title: new FormControl(''),
-
-})
 
 @ViewChild('modalCancellazione') modalCancellazione: ElementRef;
   id: string;
@@ -87,6 +81,7 @@ paginate(event) {
  }
 
 
+
  open(content: any, rimuovi?: string ) { // rimuovi è opzionale, se non viene passato il valore sarà undefined
     let cancella = rimuovi
     this.modalService.open(content, {ariaLabelledBy: 'modal cancellation', size: 'lg', centered: true}).result
@@ -101,18 +96,16 @@ paginate(event) {
   }
 
 onRemove(){
-    console.log(this.form.value);
+    console.log(this.id);
 
-    const user = this.form.value.title;
+    const rec = this.id;
     // qui creo un oggetto user con i valori del form, che poi passo al servizio per inserirlo nel database
 
 
-    const utente = this.form.value;
 
     this.recipeService.delRecipe(this.id).subscribe({
-      next: (res) => {
-        console.log(res);
-
+      next: (rec) => {
+        console.log(rec);
         this.recipeService.delRecipe(this.id);
         this.router.navigate(['recipe-card']);
       },
@@ -120,9 +113,9 @@ onRemove(){
         console.log(err);
       }
     })
+}
 
-
-  }
+}
 // open(content: any, rimuovi: string) { // rimuovi è opzionale, se non viene passato il valore sarà undefined
 //     let cancella = rimuovi;
 //   this.modalService.open(content, {ariaLabelledBy: 'modal cancellation', size: 'lg', centered: true}).result
@@ -139,4 +132,4 @@ onRemove(){
 
 
 
-}
+

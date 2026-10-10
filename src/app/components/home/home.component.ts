@@ -23,7 +23,7 @@ constructor(private userService: UserService, private modalService: NgbModal) { 
 // togliamo da qui private recipeService: RecipeService,
 
 ngOnInit(): void {
-  // this.prendiRicette()
+//  this.prendiRicette()
 
   this.userService.datiUtente.subscribe(
     (res: any) =>{

@@ -18,6 +18,8 @@ import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component'
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
+import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { RegistrationComponent } from './components/user/registration/registrati
     RecipeCardComponent,
     DetailComponent,
     RecipeListComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    NewRecipeComponent,
+
   ],
   imports: [
     BrowserModule,
