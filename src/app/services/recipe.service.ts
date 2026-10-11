@@ -65,4 +65,3 @@ delRecipe(id: string): Observable<Recipe> {
   return this.http.delete<Recipe>(`${this.apiBaseUrl}/${id}`);
 }
 }
-

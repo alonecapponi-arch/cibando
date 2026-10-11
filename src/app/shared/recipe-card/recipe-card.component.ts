@@ -43,17 +43,12 @@ ngOnInit(): void {
       console.log(err);
   }
  })
- this.recipeService.delRecipe(this.id).subscribe({
-   next: (res) => {
-        console.log(res);
+ this.recipeService.datiRicetta.subscribe(
+     (res: any) =>{
+      this.id = res;
 
-        this.recipeService.delRecipe(this.id);
-        this.router.navigate(['recipe-list']);
-      },
-      error: (err) => {
-        console.log(err);
-      }
- })
+      this.open(this.modalCancellazione)
+    })
 }
 
 inviaTitolo(titolo: string, diff: number)  {
@@ -106,7 +101,7 @@ onRemove(){
     this.recipeService.delRecipe(this.id).subscribe({
       next: (rec) => {
         console.log(rec);
-        this.recipeService.delRecipe(this.id);
+        this.recipeService.datiRicetta.next(this.id);
         this.router.navigate(['recipe-card']);
       },
       error: (err) => {

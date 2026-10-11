@@ -15,8 +15,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                     <i class="pi pi-user"></i><input type="text" id="form3Example1c" class="form-control" formControlName="title"/>
-                      <label class="form-label" for="form3Example1c">Nome Ricetta</label>
+                      <input type="text" id="form3Example1c" class="form-control" formControlName="title"/>
+                      <i class="pi pi-user"></i><label class="form-label" for="form3Example1c">Nome Ricetta</label>
                       <p class="help is-danger"  *ngIf="!form.get('title').valid && form.get('title').touched">
                         Il campo è obbligatorio
                       </p>
@@ -27,8 +27,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                     <i class="pi pi-user"></i><input type="text" id="form3Example1c" class="form-control" formControlName="description"/>
-                      <label class="form-label" for="form3Example1c">Descrizione</label>
+                     <textarea type="text" id="form3Example1c" class="form-control " formControlName="description" rows="5"></textarea>
+                      <i class="pi pi-columns-2"></i><label class="form-label" for="form3Example1c">Descrizione</label>
                       <p class="help is-danger"  *ngIf="!form.get('description').valid && form.get('description').touched">
                         Il campo è obbligatorio
                       </p>
@@ -38,8 +38,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                     <i class="pi pi-user"></i><input type="text" id="form3Example1c" class="form-control" formControlName="image"/>
-                      <label class="form-label" for="form3Example1c">immagine</label>
+                     <input type="text" id="form3Example1c" class="form-control" formControlName="image"/>
+                      <i class="pi pi-image"></i><label class="form-label" for="form3Example1c">immagine</label>
                       <p class="help is-danger"  *ngIf="!form.get('image').valid && form.get('image').touched">
                         Il campo è obbligatorio
                       </p>
@@ -50,8 +50,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                     <i class="pi pi-user"></i><input type="number" id="form3Example1c" class="form-control" formControlName="difficulty"/>
-                      <label class="form-label" for="form3Example1c">Difficoltà</label>
+                     <input type="number" id="form3Example1c" class="form-control" formControlName="difficulty"/>
+                      <i class="pi pi-star"></i><label class="form-label" for="form3Example1c">Difficoltà</label>
                       <p class="help is-danger"  *ngIf="!form.get('difficulty').valid && form.get('difficulty').touched">
                         Il campo è obbligatorio
                       </p>
@@ -69,7 +69,7 @@
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="../../../../assets/images/cibo-reg1.webp"
+                <img src="https://template.canva.com/EAFEEv3-Pqs/1/0/1067w-ns-fl3V6RGI.jpg"
                   alt="Sample image">
 
               </div>
