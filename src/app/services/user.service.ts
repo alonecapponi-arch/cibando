@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject, ReplaySubject } from 'rxjs';
+import { Subject, ReplaySubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
 
 
 @Injectable({
@@ -12,6 +10,7 @@ export class UserService {
   apiBaseUrl = '/api/users'; // qui inseriamo l'url base dell'api, in questo caso è /api/users
 
   datiUtente = new ReplaySubject();
+  userRole = new ReplaySubject();
 
   constructor(
     private http: HttpClient

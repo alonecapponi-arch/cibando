@@ -57,7 +57,6 @@ getRecipe(id: string): Observable<Recipe> {
   // il metodo get() di HttpClient restituisce un Observable di tipo any, quindi dobbiamo specificare il tipo di ritorno con <Recipe>
   // inserendo ${id} gli dico che voglio passare l'id della ricetta come parametro nell'url
   // in questo caso l'url sarà /api/recipes/:id, dove :id è l'id della ricetta che voglio ottenere
-  // in questo caso l'url sarà /api/recipes/1, dove 1 è l'id della ricetta che voglio ottenere
   // inseriamo "of (recipe)" perchè è sotto mock, nel momento che la liberiamo
   // diventa return recipe;
 }

@@ -19,6 +19,7 @@ import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.component';
+import { LoginComponent } from './components/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.c
     RecipeListComponent,
     RegistrationComponent,
     NewRecipeComponent,
+    LoginComponent,
 
   ],
   imports: [

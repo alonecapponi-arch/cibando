@@ -44,8 +44,8 @@ ngOnInit(): void {
   }
  })
  this.recipeService.datiRicetta.subscribe(
-     (res: any) =>{
-      this.id = res;
+     (del: any) =>{
+      this.id = del;
 
       this.open(this.modalCancellazione)
     })
@@ -91,7 +91,7 @@ paginate(event) {
   }
 
 onRemove(){
-    console.log(this.id);
+    console.log();
 
     const rec = this.id;
     // qui creo un oggetto user con i valori del form, che poi passo al servizio per inserirlo nel database
@@ -99,9 +99,9 @@ onRemove(){
 
 
     this.recipeService.delRecipe(this.id).subscribe({
-      next: (rec) => {
-        console.log(rec);
-        this.recipeService.datiRicetta.next(this.id);
+      next: (del) => {
+        console.log(del);
+        this.recipeService.datiRicetta.next(del);
         this.router.navigate(['recipe-card']);
       },
       error: (err) => {

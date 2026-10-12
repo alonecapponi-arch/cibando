@@ -18,8 +18,12 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="new-recipe"><i class="pi pi-plus"></i> Nuova Ricetta</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="registrazione"><i class="pi pi-user"></i> Registrazione</a>
+        <li class="nav-item" *ngIf="!auth.isLogged()"><!--se è falso mi mostra accedi-->
+          <a class="nav-link" routerLink="login"><i class="pi pi-user"></i> Accedi</a><!--Abbiamo cambiato titolo da Registrazione in Accedi e il link in login-->
+        </li>
+        <li class="nav-item" *ngIf="auth.isLogged()"><!--se è vero mi mostra esci-->
+          <span>Ciao {{user.name}} - </span>
+          <a class="nav-link" (click)="logout()"><i class="pi pi-sign-out"></i> Esci</a> <!--(click)eseguire logout-->
         </li>
         <li class="nav-item">
           <a class="nav-link" ><i class="pi pi-envelope"></i> Contatti</a>
