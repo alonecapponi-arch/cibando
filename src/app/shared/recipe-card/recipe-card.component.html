@@ -19,7 +19,7 @@
     <h5 class="card-title">{{recipe.title}}</h5>
     <p class="card-text">{{recipe.description | slice: 0:accorciaDescrizione(recipe.description)}} ...</p>
     <a class="btn btn-primary" routerLink="dettaglio/{{recipe.title}}/{{recipe._id}}">visualizza</a>
-    <button class="pi pi-trash"severity="danger" label="Elimina" ></button>
+    <button class="pi pi-trash" *ngIf= "ruolo === 'admin'"  (click)="open(modalCancellazione)" severity="danger" label="Elimina" ></button>
 
     <!-- lo / davanti ad un percorso (/dettaglio/) è un percorso assoluto, ignora la posizione di partenza
      se invece lo tolgo il percorso è relativo a dove mi trovo-->
@@ -47,8 +47,8 @@ finito questo vado in css a gestire le classi
     <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
   </div>
 
-  <div class="modal-body">
-    <h3> Conferma per cancellare:  </h3>
+  <div class="modal-body" >
+    <h3> Conferma per cancellare: </h3>
 
   </div>
 

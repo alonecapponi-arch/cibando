@@ -9,6 +9,7 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { PaginatorModule } from 'primeng/paginator';
 import{ HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
 
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -46,7 +47,8 @@ import { LoginComponent } from './components/user/login/login.component';
     PasswordModule,
     DividerModule,
     PaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

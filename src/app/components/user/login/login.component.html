@@ -6,9 +6,7 @@
 
   <div class="form-outline mb-4">
     <label class="form-label" for="password">Password</label>
-    <p-password name="password" class="form-control" placeholder="scrivi la tua password" ngModel  [toggleMask]="true" [feedback]="false"></p-password>
-
-
+    <p-password [toggleMask]="true" [feedback]="false" name="password" class="form-control" placeholder="scrivi la tua password" ngModel></p-password>
     <!-- <p-password name="password" class="form-control" placeholder="scrivi la tua password" ngModel  [toggleMask]="true" [feedback]="false"></p-password> -->
   </div>
 
@@ -23,3 +21,5 @@
 <div>
     Se ancora non sei registrato <a routerLink="/registrazione">clicca qui</a> per registrarti
 </div>
+
+<p-toast position="bottom-right"></p-toast>

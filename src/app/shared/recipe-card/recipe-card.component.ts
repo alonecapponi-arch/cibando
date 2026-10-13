@@ -4,6 +4,7 @@ import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 // A) Input è un decoratore
 // B1) prima importo il modello 'Recipe'
 @Component({
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./recipe-card.component.scss']
 })
 export class RecipeCardComponent implements OnInit {
+
 recipes: Recipe[];
 @Output() messaggio = new EventEmitter();
 
@@ -26,13 +28,23 @@ page = 1;
 ricettePerPagina = 4;
 totaleRicette: number;
 
+ruolo: any;
+
 constructor(
   private recipeService: RecipeService,
   private modalService: NgbModal,
-  private router: Router
+  private router: Router,
+  private userService: UserService
  ) {}
 
 ngOnInit(): void {
+  if (JSON.parse(localStorage.getItem('user')) !== null) {
+    this.userService.userRole.subscribe({
+      next: res => this.ruolo = res    //dopo il next si può anche scrivere (res) => {this.ruolo = res}
+    })
+  }
+
+
  this.recipeService.getRecipes().subscribe({
     next: (res) => {
     this.recipes = res;
