@@ -28,6 +28,12 @@ getRecipes(): Observable<Recipe[]> {
   // return this.http.get<Recipe[]>(this.apiBaseUrl + '/');
   return this.http.get<Recipe[]>(`${this.apiBaseUrl}/`);
 }
+// utilizzo PIPE ASYNC:
+getRecipesAsync(){  // si può utlilzzare direttamente così o anche : Recipe[]
+  return this.http.get<Recipe[]>(`${this.apiBaseUrl}/`);
+}
+
+
   //versione con il backtick, che ci permette di inserire variabili all'interno della stringa
   // qui facciamo la chiamata http al nostro endpoint /api/recipes, che ci restituisce un array di ricette
   // il metodo getRecipes() restituisce un Observable di tipo Recipe[], che è un array di ricette
@@ -39,7 +45,7 @@ getRecipes(): Observable<Recipe[]> {
 // dovrà ricevere per essere richiamato l'id. Gli diciamo che è asincrono (Observable)
 // inserendo | (pipe) gli dico che può darmi 2 risultati o ricetta o altro (posso inserire una doppia tipizzazione )
 
-
+// VERSIONE PER MOCK
 //  getRecipe(id: number): Observable<Recipe | undefined> {
 //   const recipe  = RECIPES.find(ricetta => ricetta._id === id);
 //  return of (recipe);
@@ -49,6 +55,7 @@ getRecipes(): Observable<Recipe[]> {
 
 getRecipe(id: string): Observable<Recipe> {
   return this.http.get<Recipe>(`${this.apiBaseUrl}/${id}`);
+
 
 
   //versione con il backtick, che ci permette di inserire variabili all'interno della stringa

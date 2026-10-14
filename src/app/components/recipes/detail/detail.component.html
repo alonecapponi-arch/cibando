@@ -4,7 +4,7 @@
       <h2 class="detail-title">{{ricetta.title}}</h2>
       <p class="detail-description">{{ricetta.description}}</p>
       <p class="detail-description"><span>Difficoltà: </span><img [src]="percorsoDifficolta+ricetta.difficulty+'.png'" class="difficulty"></p>
-      <p class="detail-description"><span>Data: </span>{{ricetta.createdAt | slice: 0:10}}</p>
+      <p class="detail-description"><span>Data: </span>{{ricetta.createdAt | date}}</p>
   </div>
 </div>
 <div *ngIf="!ricetta">

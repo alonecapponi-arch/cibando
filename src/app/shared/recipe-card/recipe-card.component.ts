@@ -5,6 +5,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { take, first, Observable, map } from 'rxjs';
 // A) Input è un decoratore
 // B1) prima importo il modello 'Recipe'
 @Component({
@@ -30,6 +31,19 @@ totaleRicette: number;
 
 ruolo: any;
 
+totRecipe: Recipe[];
+
+// CREO UNA VARIABILE PER LA PIPE ASYNC $ convenzione in angular per far capire che sarà chiamata tremite pipe async
+recipes$: Observable<Recipe[]> = this.recipeService.getRecipesAsync().pipe(
+  map(res => res.filter(ricettaFiltrata => ricettaFiltrata.difficulty < 3)), // (scritta opzionale per filtrare) cerco elenco prodotti e poi filtro tramite una condizione
+  map (res => this.totRecipe= res) // tutti prodotti filtrati e inseriti nella Response
+);
+//tutto questo puà essere ridotto fino a:  recipes$: Observable<Recipe[]> = this.recipeService.getRecipesAsync().pipe();
+// ma si aggiunge i map per filtrare o avere una variabile da utilizzare magari per le pagine
+
+
+
+
 constructor(
   private recipeService: RecipeService,
   private modalService: NgbModal,
@@ -45,7 +59,11 @@ ngOnInit(): void {
   }
 
 
- this.recipeService.getRecipes().subscribe({
+ this.recipeService.getRecipes().pipe(
+  map(res => res.filter(ricettaFiltrata => ricettaFiltrata.difficulty < 3)),//
+  map (res => this.totRecipe = res),
+    first()
+   ).subscribe({
     next: (res) => {
     this.recipes = res;
     this.totaleRicette = res.length;
@@ -55,12 +73,12 @@ ngOnInit(): void {
       console.log(err);
   }
  })
- this.recipeService.datiRicetta.subscribe(
-     (del: any) =>{
-      this.id = del;
+//  this.recipeService.datiRicetta.subscribe(
+//      (del: any) =>{
+//       this.id = del;
 
-      this.open(this.modalCancellazione)
-    })
+//       this.open(this.modalCancellazione)
+//     })
 }
 
 inviaTitolo(titolo: string, diff: number)  {
@@ -88,36 +106,30 @@ paginate(event) {
  }
 
 
-
- open(content: any, rimuovi?: string ) { // rimuovi è opzionale, se non viene passato il valore sarà undefined
-    let cancella = rimuovi
-    this.modalService.open(content, {ariaLabelledBy: 'modal cancellation', size: 'lg', centered: true}).result
+ open(content: any, idDelete: string ) { // rimuovi è opzionale, se non viene passato il valore sarà undefined
+   this.modalService.open(content, {ariaLabelledBy: 'modal cancellation', size: 'lg', centered: true}).result
     .then(
     (res) => {
-
-      console.log('azione da eseguire', cancella) // qui puoi mettere un'azione da eseguire in base al risultato della modale
-    }).catch((res) => {
-      console.log('nessuna azione da eseguire')
+      if (idDelete) {
+        this.onRemove(idDelete);
+      }
+      console.log('azione da eseguire', idDelete) // qui puoi mettere un'azione da eseguire in base al risultato della modale
     })
+    .catch((error) => {
+
+      console.log('nessuna azione da eseguire', error)
+    });
 
   }
-
-onRemove(){
-    console.log();
-
-    const rec = this.id;
-    // qui creo un oggetto user con i valori del form, che poi passo al servizio per inserirlo nel database
-
-
-
-    this.recipeService.delRecipe(this.id).subscribe({
-      next: (del) => {
-        console.log(del);
-        this.recipeService.datiRicetta.next(del);
+private onRemove(id: string) {
+    this.recipeService.delRecipe(id).subscribe({
+      next: (res) => {
+        console.log('ricetta eliminata con successo', res);
+        this.recipeService.datiRicetta.next(res);
         this.router.navigate(['recipe-card']);
       },
       error: (err) => {
-        console.log(err);
+        console.log('Errore cancellazione', err);
       }
     })
 }

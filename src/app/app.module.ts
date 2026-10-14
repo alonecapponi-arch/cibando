@@ -21,6 +21,7 @@ import { RecipeListComponent } from './components/recipes/recipe-list/recipe-lis
 import { RegistrationComponent } from './components/user/registration/registration.component';
 import { NewRecipeComponent } from './components/recipes/new-recipe/new-recipe.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LoginComponent } from './components/user/login/login.component';
     RegistrationComponent,
     NewRecipeComponent,
     LoginComponent,
+    ProfileComponent,
 
   ],
   imports: [
