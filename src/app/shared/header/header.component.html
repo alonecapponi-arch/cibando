@@ -15,9 +15,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="ricette"><i class="pi pi-book"></i> Ricette</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="auth.isLogged()" routerLink="new-recipe"><i class="pi pi-plus"></i> Nuova Ricetta</a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" ><i class="pi pi-envelope"></i> Contatti</a>
         </li>
@@ -28,7 +26,6 @@
             <a class="nav-link" routerLink="login"><i class="pi pi-user"></i> Accedi</a><!--Abbiamo cambiato titolo da Registrazione in Accedi e il link in login-->
         </li>
       </ul>
-
       <ul class="navbar-nav" *ngIf="auth.isLogged()">
         <li class="nav-item" >
           <span class="nav-link">Ciao {{user.name}} - </span>
@@ -36,6 +33,9 @@
         <li class="nav-item" >
           <a class="nav-link" routerLink="profile"><i class="pi pi-user"></i> Profilo</a>
            </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="ricette/new-recipe"><i class="pi pi-plus"></i> Nuova Ricetta</a>
+        </li>
         <li class="nav-item" >
           <a class="nav-link" (click)="logout()"><i class="pi pi-sign-out"></i> Esci</a> <!--(click)eseguire logout-->
         </li>

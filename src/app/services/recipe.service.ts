@@ -17,8 +17,8 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
 
-insertRecipe(recipe: any): Observable<any> {
-    return this.http.post<any>(`${this.apiBaseUrl}/`, recipe);
+insertRecipe(ricetta: Recipe): Observable<Recipe> {
+    return this.http.post<Recipe>(`${this.apiBaseUrl}/`, ricetta);
   }
 
 

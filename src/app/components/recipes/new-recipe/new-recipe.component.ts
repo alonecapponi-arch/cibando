@@ -1,8 +1,9 @@
+import { Recipe } from 'src/app/models/recipe.model';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+
 
 
 
@@ -29,13 +30,16 @@ form = new FormGroup({
 onSubmit(){
     console.log(this.form.value);
 
-    const recipe = {title: this.form.value.title, description: this.form.value.description, image: this.form.value.image, difficulty: this.form.value.difficulty};
+    const recipe = {
+      title: this.form.value.title,
+      description: this.form.value.description,
+      image: this.form.value.image,
+      difficulty: this.form.value.difficulty
+    };
     // qui creo un oggetto user con i valori del form, che poi passo al servizio per inserirlo nel database
-
-
     const ricetta = this.form.value;
 
-    this.recipeService.insertRecipe(ricetta).subscribe({
+    this.recipeService.insertRecipe(recipe).subscribe({
       next: (res) => {
         console.log(res);
 

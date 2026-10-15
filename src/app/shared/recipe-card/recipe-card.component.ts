@@ -35,7 +35,7 @@ totRecipe: Recipe[];
 
 // CREO UNA VARIABILE PER LA PIPE ASYNC $ convenzione in angular per far capire che sarà chiamata tremite pipe async
 recipes$: Observable<Recipe[]> = this.recipeService.getRecipesAsync().pipe(
-  map(res => res.filter(ricettaFiltrata => ricettaFiltrata.difficulty < 3)), // (scritta opzionale per filtrare) cerco elenco prodotti e poi filtro tramite una condizione
+  map(res => res.filter(ricettaFiltrata => ricettaFiltrata.difficulty < 5)), // (scritta opzionale per filtrare) cerco elenco prodotti e poi filtro tramite una condizione
   map (res => this.totRecipe= res) // tutti prodotti filtrati e inseriti nella Response
 );
 //tutto questo puà essere ridotto fino a:  recipes$: Observable<Recipe[]> = this.recipeService.getRecipesAsync().pipe();
@@ -60,7 +60,7 @@ ngOnInit(): void {
 
 
  this.recipeService.getRecipes().pipe(
-  map(res => res.filter(ricettaFiltrata => ricettaFiltrata.difficulty < 3)),//
+  map(res => res.filter(ricettaFiltrata => ricettaFiltrata.difficulty < 5)),//
   map (res => this.totRecipe = res),
     first()
    ).subscribe({
