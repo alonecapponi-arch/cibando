@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { take, first, Observable, map } from 'rxjs';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 // A) Input è un decoratore
 // B1) prima importo il modello 'Recipe'
 @Component({
@@ -48,7 +49,8 @@ constructor(
   private recipeService: RecipeService,
   private modalService: NgbModal,
   private router: Router,
-  private userService: UserService
+  private userService: UserService,
+  private sanitizer: DomSanitizer
  ) {}
 
 ngOnInit(): void {
@@ -80,6 +82,27 @@ ngOnInit(): void {
 //       this.open(this.modalCancellazione)
 //     })
 }
+
+// Sanitizzazione del contenuto HTML
+  getSanitizedHTML(descrizione: string): SafeHtml { //
+    const tagliaDescrizione = this.accorciaDescrizioneNuova(descrizione); // la costante richiama il metodo sotto e gli passa la descrizione accorciata (prima di sanificare)
+    const sanitizedDescription = this.sanitizer.bypassSecurityTrustHtml(tagliaDescrizione); // bypa.. è un metodo per sanificare
+    return sanitizedDescription;
+  }
+
+// Funzione per accorciare la descrizione
+ accorciaDescrizioneNuova(descrizione: string): string {
+    const lunghezzaMassima = 198;
+    if (descrizione.length <= lunghezzaMassima) {
+      return descrizione.slice(0, lunghezzaMassima);
+    } else {
+      const ultimaPosizioneSpazio = descrizione.lastIndexOf(' ', lunghezzaMassima); // prendere l'ultimo spazio ' ' prima del 198
+      return descrizione.slice(0, ultimaPosizioneSpazio);
+    }
+  }
+
+
+
 
 inviaTitolo(titolo: string, diff: number)  {
 

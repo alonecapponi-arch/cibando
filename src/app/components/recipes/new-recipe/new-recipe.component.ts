@@ -43,7 +43,7 @@ onSubmit(){
       next: (res) => {
         console.log(res);
 
-        this.recipeService.datiRicetta.next(ricetta);
+      //  this.recipeService.datiRicetta.next(ricetta);
         this.router.navigate(['home']);
       },
       error: (err) => {
