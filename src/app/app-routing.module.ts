@@ -22,6 +22,9 @@ const routes: Routes = [
   //     {path: 'recipes', component: RecipeListComponent, pathMatch: 'full'},
   //     {path: 'dettaglio/:title/:_id' , component: DetailComponent},
   //     {path: 'new-recipe', component: NewRecipeComponent, canActivate: [LoggedInGuard] }],
+{ path: 'ricette', loadChildren: () =>
+  import ("./components/recipes/recipe.module").then(module => module.RecipesModule) // collegamento del recipe con l'esterno
+},
   {path: 'registrazione', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard] },

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { take, first, Observable, map } from 'rxjs';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 // A) Input è un decoratore
 // B1) prima importo il modello 'Recipe'
 @Component({
@@ -54,11 +55,14 @@ constructor(
  ) {}
 
 ngOnInit(): void {
-  if (JSON.parse(localStorage.getItem('user')) !== null) {
-    this.userService.userRole.subscribe({
-      next: res => this.ruolo = res    //dopo il next si può anche scrivere (res) => {this.ruolo = res}
-    })
-  }
+  // if (JSON.parse(localStorage.getItem('user')) !== null) {
+  //   this.userService.userRole.subscribe({
+  //     next: res => this.ruolo = res    //dopo il next si può anche scrivere (res) => {this.ruolo = res}
+  //   })
+  // }
+this.userService.userRole.subscribe({
+  next: res => this.ruolo = res
+});
 
 
  this.recipeService.getRecipes().pipe(

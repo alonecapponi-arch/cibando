@@ -20,13 +20,13 @@ export class UserService {
     return this.http.post<any>(`${this.apiBaseUrl}/signup`, user); //versione con il backtick, che ci permette di inserire variabili all'interno della stringa
   }
 
-  getUserProfile(email: string): Observable<string>{
+  getUserProfile(email: string): Observable<any>{
     const user = {email: email}
     //nel caso che fosse stato (email: string, password:string) avrei creato una costante oggetto:
     //const user = {
     //  email: email
     //  password: password}
     // e scritto alla fine user invece di email
-    return this.http.post<string>(`${this.apiBaseUrl}/user`, user)
+    return this.http.post<any>(`${this.apiBaseUrl}/user`, user)
   }
 }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { RecipeRoutingModule } from './components/recipes/recipes-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,8 +42,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     HttpClientModule,
     ToastModule,
     RecipesModule,
-    RecipeRoutingModule
-  ],
+     ],
   providers: [],
   bootstrap: [AppComponent]
 })
